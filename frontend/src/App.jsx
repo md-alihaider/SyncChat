@@ -1,9 +1,9 @@
-
+import SignUp from "./pages/signup/SignUp.jsx";
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  return <div className=" p-4 h-screen flex justify-center items-center">
+    <SignUp />
+  </div>;
+};
 
-export default App
+export default App;
