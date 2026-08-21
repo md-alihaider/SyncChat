@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
@@ -63,17 +64,7 @@ const Login = () => {
                   Password
                 </span>
 
-                <a
-                  href="#"
-                  className="
-                    text-xs
-                    text-blue-400
-                    hover:text-blue-300
-                    transition-colors
-                  "
-                >
-                  Forgot password?
-                </a>
+                
               </label>
 
               <input
@@ -126,8 +117,8 @@ const Login = () => {
           {/* Register */}
           <p className="text-center text-sm text-white/60">
             Don't have an account?{" "}
-            <a
-              href="#"
+            <Link
+              to="/signup"
               className="
                 text-blue-400
                 hover:text-blue-300
@@ -136,7 +127,7 @@ const Login = () => {
               "
             >
               Create an account
-            </a>
+            </Link>
           </p>
         </div>
       </div>

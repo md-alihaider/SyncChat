@@ -1,6 +1,25 @@
+import { useState } from "react";
 import GenderSelect from "./GenderSelect";
+import { Link } from "react-router";
+import useSignUp from "../../hooks/useSignUp";
 
 const SignUp = () => {
+  const [inputs, setInputs] = useState({
+    fullname: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+  });
+
+  const {signup, loading} = useSignUp();
+  const handleSelectChange = (gender) => {
+    setInputs({ ...inputs, gender });
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await signup(inputs);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-6">
       <div
@@ -17,7 +36,7 @@ const SignUp = () => {
         "
       >
         {/* Glass highlight */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
 
         <div className="relative p-6">
           {/* Heading */}
@@ -31,7 +50,7 @@ const SignUp = () => {
             </p>
           </div>
 
-          <form className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-3">
             {/* Full Name */}
             <div className="form-control">
               <label className="label px-1 pb-1">
@@ -43,6 +62,10 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder="John Doe"
+                value={inputs.fullname}
+                onChange={(e) =>
+                  setInputs({ ...inputs, fullname: e.target.value })
+                }
                 className="
                   input
                   w-full
@@ -71,6 +94,10 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder="johndoe"
+                value={inputs.username}
+                onChange={(e) =>
+                  setInputs({ ...inputs, username: e.target.value })
+                }
                 className="
                   input
                   w-full
@@ -99,6 +126,10 @@ const SignUp = () => {
               <input
                 type="password"
                 placeholder="Enter password"
+                value={inputs.password}
+                onChange={(e) =>
+                  setInputs({ ...inputs, password: e.target.value })
+                }
                 className="
                   input
                   w-full
@@ -127,6 +158,10 @@ const SignUp = () => {
               <input
                 type="password"
                 placeholder="Confirm password"
+                value={inputs.confirmPassword}
+                onChange={(e) =>
+                  setInputs({ ...inputs, confirmPassword: e.target.value })
+                }
                 className="
                   input
                   w-full
@@ -145,7 +180,7 @@ const SignUp = () => {
             </div>
 
             {/* Gender */}
-            <GenderSelect />
+            <GenderSelect onSelectChange={handleSelectChange} value={inputs.gender} />
 
             {/* Already have account */}
             <div className="pt-1">
@@ -153,8 +188,8 @@ const SignUp = () => {
                 Already have an account?{" "}
               </span>
 
-              <a
-                href="#"
+              <Link
+                to="/login"
                 className="
                   text-sm
                   text-blue-400
@@ -164,7 +199,7 @@ const SignUp = () => {
                 "
               >
                 Login
-              </a>
+              </Link>
             </div>
 
             {/* Sign Up Button */}
