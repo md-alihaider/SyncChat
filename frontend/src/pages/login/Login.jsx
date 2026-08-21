@@ -14,7 +14,7 @@ const Login = () => {
         "
       >
         {/* Glass highlight */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
 
         <div className="relative p-8">
           {/* Heading */}
