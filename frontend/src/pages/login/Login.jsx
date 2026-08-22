@@ -1,4 +1,15 @@
+import { useState } from "react";
+import { Link } from "react-router";
+import useLogIn from "../../hooks/useLogIn";
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { login, loading } = useLogIn();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(username, password);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div
@@ -28,7 +39,7 @@ const Login = () => {
             </p>
           </div>
 
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             {/* Username */}
             <div className="form-control">
               <label className="label px-1 pb-2">
@@ -40,6 +51,8 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="
                   input w-full
                   h-12
@@ -62,23 +75,13 @@ const Login = () => {
                 <span className="label-text text-white/80 font-medium">
                   Password
                 </span>
-
-                <a
-                  href="#"
-                  className="
-                    text-xs
-                    text-blue-400
-                    hover:text-blue-300
-                    transition-colors
-                  "
-                >
-                  Forgot password?
-                </a>
               </label>
 
               <input
                 type="password"
                 placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="
                   input w-full
                   h-12
@@ -98,6 +101,7 @@ const Login = () => {
             {/* Login button */}
             <button
               type="submit"
+              disabled={loading}
               className="
                 btn
                 btn-primary
@@ -114,7 +118,11 @@ const Login = () => {
                 duration-300
               "
             >
-              Login
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
 
@@ -126,8 +134,8 @@ const Login = () => {
           {/* Register */}
           <p className="text-center text-sm text-white/60">
             Don't have an account?{" "}
-            <a
-              href="#"
+            <Link
+              to="/signup"
               className="
                 text-blue-400
                 hover:text-blue-300
@@ -136,7 +144,7 @@ const Login = () => {
               "
             >
               Create an account
-            </a>
+            </Link>
           </p>
         </div>
       </div>

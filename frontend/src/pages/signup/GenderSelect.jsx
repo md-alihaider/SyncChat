@@ -1,4 +1,4 @@
-const GenderSelect = () => {
+const GenderSelect = ({ onSelectChange, value }) => {
   return (
     <div className="form-control pt-1">
       <label className="label px-1 pb-1">
@@ -11,6 +11,8 @@ const GenderSelect = () => {
             type="radio"
             name="gender"
             value="male"
+            checked={value === "male"}
+            onChange={(e)=> onSelectChange(e.target.value)}
             className="radio radio-primary radio-sm"
           />
 
@@ -22,6 +24,8 @@ const GenderSelect = () => {
             type="radio"
             name="gender"
             value="female"
+            checked={value === "female"}
+            onChange={(e)=> onSelectChange(e.target.value)}
             className="radio radio-primary radio-sm"
           />
 
