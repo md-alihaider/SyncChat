@@ -180,7 +180,10 @@ const SignUp = () => {
             </div>
 
             {/* Gender */}
-            <GenderSelect onSelectChange={handleSelectChange} value={inputs.gender} />
+            <GenderSelect
+              onSelectChange={handleSelectChange}
+              value={inputs.gender}
+            />
 
             {/* Already have account */}
             <div className="pt-1">
@@ -205,6 +208,7 @@ const SignUp = () => {
             {/* Sign Up Button */}
             <button
               type="submit"
+              disabled={loading}
               className="
                 btn
                 btn-primary
@@ -222,7 +226,11 @@ const SignUp = () => {
                 duration-300
               "
             >
-              Create Account
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Create Account"
+              )}
             </button>
           </form>
         </div>
