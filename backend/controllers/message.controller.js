@@ -57,9 +57,7 @@ export const getMessage = async (req, res) => {
       participants: { $all: [senderId, userToChatId] },
     }).populate("messages"); //not reference but actual object
 
-    if (!conversation) {
-      return res.status(404).json({ error: "Conversation not found" });
-    }
+    if (!conversation) return res.status(200).json([]);
     //send response
     const messages = conversation.messages;
     res.status(200).json(messages);

@@ -3,9 +3,8 @@ import useConversation from "../../zustand/useConversation";
 const Conversation = ({ conversation, emoji, lastidx }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
-	const isSelected = selectedConversation?._id === conversation._id;
-	console.log("Conversation:", conversation.fullname);
-  console.log("Profile Pic:", conversation.profilePic);
+  const isSelected = selectedConversation?._id === conversation._id;
+
   return (
     <>
       <div
