@@ -23,8 +23,8 @@ export const signupUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create a new user pic
-    const boyProfilePic = `https://avatarapi.runflare.run/public/boy?usearname=${username}`;
-    const girlProfilePic = `https://avatarapi.runflare.run/public/girl?usearname=${username}`;
+    const boyProfilePic = `https://avatarapi.runflare.run/public/boy?username=${username}`;
+    const girlProfilePic = `https://avatarapi.runflare.run/public/girl?username=${username}`;
 
     // Create a new user
     const newUser = new User({
