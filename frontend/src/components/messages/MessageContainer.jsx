@@ -5,6 +5,7 @@ import Messages from "./Messages";
 import { TiMessages } from "react-icons/ti";
 
 const MessageContainer = () => {
+  //zustand state management
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   useEffect(() => {
