@@ -1,36 +1,54 @@
 # 💬 SyncChat
 
-A real-time chat application I'm building as a side project while learning and practicing full-stack web development.
+A full-stack real-time chat application built as a side project to practice and implement modern full-stack web development concepts.
 
-> 🚧 **Status:** In Development — Backend currently implemented, frontend coming next.
+> 🚀 **Status:** Deployed and actively developed.
 
----
+## 🌐 Live Demo
+
+🔗 **[Try SyncChat](https://syncchat-mnrj.onrender.com/)**
 
 ## ✨ Features
 
 ### 🔐 Authentication
-
 - User signup
 - User login
 - User logout
 - Password hashing with bcrypt
 - JWT authentication
 - HTTP-only cookies
-- Protected routes using authentication middleware
+- Protected routes
 
-### 💬 Messaging
-
+### 💬 Chat & Messaging
+- User conversations
 - Send messages
 - Retrieve messages
-- Conversation management
+- Dynamic conversation selection
+- Message loading states
+- Message skeleton loading
+- Smooth scrolling to the latest message
+- Message error handling
 - MongoDB message persistence
+- Conversation management
 
----
+### 🎨 Frontend
+- Login page
+- Signup page
+- Chat interface
+- Responsive chat UI
+- Dynamic user information
+- Loading states
+- Zustand state management
 
 ## 🛠️ Tech Stack
 
-### Backend
+### Frontend
+- React
+- JavaScript
+- Tailwind CSS
+- Zustand
 
+### Backend
 - Node.js
 - Express.js
 - MongoDB
@@ -39,17 +57,22 @@ A real-time chat application I'm building as a side project while learning and p
 - bcrypt.js
 - Cookie Parser
 
-### Testing
-
-- Postman
-
-### Planned
-
-- React
+### Real-Time Communication
 - Socket.IO
-- Real-time messaging
 
----
+### Testing & Development
+- Postman
+- Git
+- GitHub
+
+## 📸 Project Preview
+
+<img 
+  width="1896" 
+  height="1002" 
+  alt="SyncChat Preview" 
+  src="https://github.com/user-attachments/assets/72e496aa-fbd7-4847-87e4-ffb66e310ccc" 
+/>
 
 ## 🔌 API Endpoints
 
@@ -68,36 +91,7 @@ A real-time chat application I'm building as a side project while learning and p
 | POST | `/api/messages/:id` | Get messages with a user |
 | POST | `/api/messages/send/:id` | Send a message to a user |
 
-> All protected message routes require authentication.
-
----
-
-## 📁 Project Structure
-
-```text
-SyncChat/
-├── backend/
-│   ├── controllers/
-│   │   ├── auth.controller.js
-│   │   └── message.controller.js
-│   ├── db/
-│   │   └── connectToMongoDb.js
-│   ├── middleware/
-│   │   └── protectRoute.js
-│   ├── models/
-│   │   ├── conversation.model.js
-│   │   ├── message.model.js
-│   │   └── user.model.js
-│   ├── routes/
-│   │   ├── auth.routes.js
-│   │   └── message.routes.js
-│   ├── utils/
-│   │   └── generateToken.js
-│   └── server.js
-└── README.md
-```
-
----
+> Protected message routes require authentication.
 
 ## ⚙️ Environment Variables
 
@@ -110,9 +104,7 @@ JWT_SECRET=your_jwt_secret
 NODE_ENV=development
 ```
 
-> ⚠️ Never commit your `.env` file or expose your database credentials and JWT secret.
-
----
+> ⚠️ Never commit your `.env` file or expose your MongoDB credentials or JWT secret.
 
 ## 🚀 Getting Started
 
@@ -120,53 +112,53 @@ NODE_ENV=development
 
 ```bash
 git clone https://github.com/md-alihaider/SyncChat.git
-```
-
-### 2. Navigate to the project
-
-```bash
 cd SyncChat
 ```
 
-### 3. Install dependencies
+### 2. Install dependencies
+
+Install dependencies in the backend and frontend directories:
 
 ```bash
+cd backend
+npm install
+
+cd ../frontend
 npm install
 ```
 
-### 4. Configure environment variables
+### 3. Configure environment variables
 
-Create a `.env` file and add your MongoDB connection string and JWT secret.
+Create the required `.env` files and add your MongoDB connection string and JWT secret.
 
-### 5. Start the development server
+### 4. Start the backend
 
 ```bash
+cd backend
 npm run dev
 ```
 
-The backend will run on:
+### 5. Start the frontend
 
-```text
-http://localhost:5000
+Open another terminal:
+
+```bash
+cd frontend
+npm run dev
 ```
-
----
 
 ## 🧪 API Testing
 
-The backend APIs have been tested using **Postman**.
-
-Current tested functionality includes:
+The backend APIs were tested using **Postman**, including:
 
 - ✅ Signup
 - ✅ Login
 - ✅ Logout
 - ✅ Protected routes
-- ✅ Send message
+- ✅ Send messages
 - ✅ Get messages
+- ✅ Conversation retrieval
 - ✅ MongoDB persistence
-
----
 
 ## 🔮 Roadmap
 
@@ -180,20 +172,26 @@ Current tested functionality includes:
 - [x] Conversation model
 - [x] Send messages API
 - [x] Get messages API
-- [ ] Build React frontend
-- [ ] Connect frontend with backend
-- [ ] Add Socket.IO
-- [ ] Implement real-time messaging
-- [ ] Improve chat UI/UX
-- [ ] Deploy SyncChat
-
----
+- [x] React frontend
+- [x] Login UI
+- [x] Signup UI
+- [x] Chat UI
+- [x] Conversation fetching
+- [x] Message retrieval
+- [x] Send message functionality
+- [x] Zustand state management
+- [x] Loading states
+- [x] Smooth message scrolling
+- [x] Socket.IO integration
+- [x] Deployment
+- [ ] Further UI/UX improvements
+- [ ] Additional real-time features
 
 ## 👨‍💻 Author
 
 ### Md Ali Haider
 
-I'm a BCA graduate focused on learning and building modern full-stack web applications.
+Full Stack Developer focused on building modern web applications and continuously improving my development skills.
 
 🌐 **Portfolio:**  
 https://alihaider-dev.vercel.app
@@ -210,8 +208,8 @@ https://instagram.com/alihaider_7056
 💡 **LeetCode:**  
 https://leetcode.com/alihaiderbgp85
 
----
-
 ## ⭐ Support
 
-If you find this project interesting, consider giving the repository a ⭐ and following my journey as I continue building SyncChat.
+If you find SyncChat interesting, consider giving the repository a ⭐.
+
+Thanks for checking out the project! 🚀
