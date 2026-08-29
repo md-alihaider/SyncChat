@@ -32,10 +32,10 @@ export const SocketContextProvider = ({ children }) => {
 
     setSocket(newSocket);
 
-    newSocket.on("connect", () => {
-      console.log("SOCKET CONNECTED:", newSocket.id);
-      console.log("SOCKET URL:", socketUrl);
-    });
+    // newSocket.on("connect", () => {
+    //   console.log("SOCKET CONNECTED:", newSocket.id);
+    //   console.log("SOCKET URL:", socketUrl);
+    // });
 
     newSocket.on("connect_error", (error) => {
       console.error("SOCKET CONNECTION ERROR:", error.message);
