@@ -19,7 +19,8 @@ export const SocketContextProvider = ({ children }) => {
       setOnlineUsers([]);
       return;
     }
-
+ 
+    // const socketUrl = "https://syncchat-mnrj.onrender.com";
     const socketUrl =
       import.meta.env.VITE_SOCKET_URL || "http://localhost:3000";
 
